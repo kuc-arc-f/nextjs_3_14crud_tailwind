@@ -63,6 +63,8 @@ console.log(item)
           <h1 className="text-gray-900 font-bold text-5xl my-4 mx-2 p-2">
             {item.title}
           </h1>
+          <hr className="my-2" />
+          ID : {this.id} <br />
           Category : {categoryName}
           <hr className="my-2"/>          
           Tag : 

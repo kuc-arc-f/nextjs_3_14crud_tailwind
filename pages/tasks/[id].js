@@ -50,10 +50,12 @@ console.log(this.id )
             </a>
           </Link>
           <hr className="my-2" />          
-          <div className="show_title_wrap bg-white shadow-lg rounded-lg">
-            <h1 className="text-gray-900 font-bold text-5xl my-4 mx-2 p-2">
+          <div className="show_title_wrap bg-white p-2 shadow-lg rounded-lg">
+            <h1 className="text-gray-900 font-bold text-5xl mt-2 mx-2">
               {this.state.title}
             </h1>
+            <p className="my-0 mx-2 p-2">ID : {this.id}
+            </p>
           </div>  
           <div className="show_title_wrap bg-white shadow-lg rounded-lg">
             <p className="my-4 mx-2 p-2">Content: {this.state.content}

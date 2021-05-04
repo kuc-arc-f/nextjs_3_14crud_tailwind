@@ -16,6 +16,11 @@ export default function Page(){
         </Link>
       </li>
       <li className="mr-6">
+        <Link href="/books">
+          <a className="text-blue-500 hover:text-blue-800">Books</a>
+        </Link>
+      </li>
+      <li className="mr-6">
         <Link href="/about">
           <a className="text-blue-500 hover:text-blue-800">About</a>
         </Link>

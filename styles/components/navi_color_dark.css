@@ -1,0 +1,16 @@
+/* normal-mode */
+.navi_bg_color{
+  @apply bg-gray-700;
+}
+.navi_text_color{
+  @apply text-white hover:text-gray-400;
+}
+.sub_navi_bg_color{
+  @apply bg-white;
+}
+.sub_navi_text_color{
+  @apply text-gray-700 hover:text-gray-400;
+}
+.sub_navi_border_color{
+  @apply border-gray-700;
+ }

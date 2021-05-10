@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Router from 'next/router'
+import flash from 'next-flash';
 import React, {Component} from 'react';
 import Dexie from 'dexie';
 
@@ -36,8 +37,10 @@ export default class extends Component {
       }
 // console.log(item)
       await this.db.tasks.add( item )
+      flash.set({ messages_success: 'Success , save' })
       Router.push('/tasks');
     } catch (error) {
+//      flash.set({ messages_error: 'Error , save' })
       console.error(error);
     }    
   } 

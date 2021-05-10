@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link';
+import flash from 'next-flash';
 import Router from 'next/router'
 import React from 'react'
 import Dexie from 'dexie';
@@ -52,6 +53,7 @@ console.log(ctx.query.id)
     console.log("#deete-id:" , this.id)
     try {
       await this.db.tasks.delete(parseInt(this.id) );
+      flash.set({ messages_success: 'Success , delete' })
       Router.push('/tasks');
 //console.log(item)
     } catch (error) {
@@ -69,6 +71,7 @@ console.log(ctx.query.id)
         title: this.state.title,
         content: this.state.content,
       });
+      flash.set({ messages_success: 'Success , save' })
       Router.push('/tasks');      
 //console.log(item)
     } catch (error) {

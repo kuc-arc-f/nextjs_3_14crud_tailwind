@@ -1,13 +1,21 @@
 import Link from 'next/link';
 import React from 'react';
+import flash from 'next-flash';
 import Dexie from 'dexie';
 
 import Layout from '../../components/layout'
+import FlashBox from '../../components/FlashBox'
 import LibTask from '../../lib/LibTask';
 import LibDexie from '../../lib/LibDexie';
 import IndexRow from './IndexRow';
 //
 export default class TaskIndex extends React.Component {
+  static async getInitialProps(ctx) {
+//console.log(items)
+    return { 
+      flash: flash.get(ctx) || {},
+    }
+  }  
   constructor(props){
     super(props)
     this.state = {data: '', items_org: ''}
@@ -15,6 +23,7 @@ export default class TaskIndex extends React.Component {
   }  
   async componentDidMount(){
     try{
+// console.log(this.props.flash)
       var config = LibTask.get_const()
       this.db = new Dexie( config.DB_NAME );
       this.db.version(config.DB_VERSION).stores( config.DB_STORE );  
@@ -55,6 +64,8 @@ export default class TaskIndex extends React.Component {
     return (
     <div className="bg-white">
       <Layout>
+        <FlashBox messages_success={this.props.flash.messages_success} 
+          messages_error={this.props.flash.messages_error} />
         <div className="container mx-auto px-5 py-2 bg-gray-100">
           <h1 className="text-5xl font-bold my-2">Tasks</h1>
           <hr className="my-4" />

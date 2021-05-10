@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import React from 'react';
+import flash from 'next-flash';
 import Router from 'next/router'
 import Dexie from 'dexie';
 
 import Layout from '../../components/layout'
+import FlashBox from '../../components/FlashBox'
 import LibTask from '../../lib/LibTask';
 import LibDexie from '../../lib/LibDexie';
 import LibCms from '../../lib/LibCms'
@@ -14,13 +16,14 @@ export default class Page extends React.Component {
   static async getInitialProps(ctx) {
 // console.log(json)
     return { 
-      items: [] ,user_id :""
+      items: [] ,user_id :"",
+      flash: flash.get(ctx) || {},
     }
   }
   constructor(props){
     super(props)
     this.state = {data: '', items_org: ''}
-//console.log(this.props)
+console.log(this.props)
   }
   async componentDidMount(){
     var config = LibTask.get_const()
@@ -47,6 +50,8 @@ export default class Page extends React.Component {
     return (
     <div className="bg-white">
     <Layout>
+      <FlashBox messages_success={this.props.flash.messages_success} 
+      messages_error={this.props.flash.messages_error} />      
       <div className="container mx-auto px-5 py-2 bg-gray-100">
         <h1 className="text-5xl font-bold my-2">Books</h1>
         <hr className="mt-2 mb-4" />

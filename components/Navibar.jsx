@@ -33,12 +33,12 @@ export default class Navibar extends React.Component {
             <li className="w-full py-1 pr-6 sm:w-auto sm:py-0">
               <Link href="/">
                 <a className="navi_text_color text-3xl font-bold">
-                  CRUD Sample
+                  {process.env.MY_SITE_NAME}
                 </a>
               </Link>
             </li>
             <li className="w-full pr-4 pb-1 pt-1 sm:pt-2 sm:w-auto sm:py-0">
-              <Link href="/">
+              <Link href="/home">
                 <a className="navi_text_color">Home</a>
               </Link>
             </li>

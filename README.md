@@ -6,7 +6,11 @@
 
  date    : 2021/05/03
 
- update  : 2021/05/10
+ update  : 2021/05/22
+
+***
+## License
+Licence : MIT License
 
 ***
 ### Summary
